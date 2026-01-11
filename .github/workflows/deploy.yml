@@ -1,0 +1,25 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # 'main' 브랜치에 푸시될 때마다 이 워크플로우를 실행합니다.
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest # 이 작업은 최신 우분투 가상 환경에서 실행됩니다.
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4 # 저장소의 코드를 가상 환경으로 가져옵니다.
+
+      # --- 여기에 빌드 또는 배포 스크립트를 추가합니다 ---
+      # 예시: 정적 웹사이트를 GitHub Pages에 배포하는 경우
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v4
+      # - name: Upload artifact
+      #   uses: actions/upload-pages-artifact@v3
+      #   with:
+      #     path: '.'
+      # - name: Deploy to GitHub Pages
+      #   id: deployment
+      #   uses: actions/deploy-pages@v4
