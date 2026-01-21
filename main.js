@@ -75,28 +75,7 @@ function generateLotto() {
     
     results.innerHTML = "";
 
-    // 게임 1~5
-    for (let i = 1; i <= 5; i++) {
-        const nums = [];
-        while (nums.length < 6) {
-            const n = Math.floor(Math.random() * 45) + 1;
-            if (!nums.includes(n)) nums.push(n);
-        }
-        nums.sort((a, b) => a - b);
-
-        let html = `<div class="game">
-            <div class="game-title">게임 ${i}</div>
-            <div class="numbers">`;
-
-        nums.forEach(n => {
-            html += `<div class="ball ${getColor(n)}">${n}</div>`;
-        });
-
-        html += `</div></div>`;
-        results.innerHTML += html;
-    }
-
-    // 게임 6 (통계 기반)
+    // 통계 기반 추천 (상단에 배치하고 "강력 추천" 메시지 추가)
     const mix = [];
 
     while (mix.length < 3) {
@@ -111,8 +90,8 @@ function generateLotto() {
 
     mix.sort((a, b) => a - b);
 
-    let html6 = `<div class="game">
-        <div class="game-title">게임 6 · 통계 기반 추천</div>
+    let htmlRecommended = `<div class="game">
+        <div class="game-title">강력 추천 · 통계 기반 추천</div>
         <div class="game-desc">
             가장 많이 나온 번호와<br>
             가장 적게 나온 번호를 조합하여<br>
@@ -121,11 +100,33 @@ function generateLotto() {
         <div class="numbers">`;
 
     mix.forEach(n => {
-        html6 += `<div class="ball ${getColor(n)}">${n}</div>`;
+        htmlRecommended += `<div class="ball ${getColor(n)}">${n}</div>`;
     });
 
-    html6 += `</div></div>`;
-    results.innerHTML += html6;
+    htmlRecommended += `</div></div>`;
+    results.innerHTML += htmlRecommended;
+
+
+    // 게임 1~3 (5개에서 3개로 변경)
+    for (let i = 1; i <= 3; i++) { // 루프 횟수를 3으로 변경
+        const nums = [];
+        while (nums.length < 6) {
+            const n = Math.floor(Math.random() * 45) + 1;
+            if (!nums.includes(n)) nums.push(n);
+        }
+        nums.sort((a, b) => a - b);
+
+        let htmlNormal = `<div class="game">
+            <div class="game-title">게임 ${i}</div>
+            <div class="numbers">`;
+
+        nums.forEach(n => {
+            htmlNormal += `<div class="ball ${getColor(n)}">${n}</div>`;
+        });
+
+        htmlNormal += `</div></div>`;
+        results.innerHTML += htmlNormal;
+    }
 }
 
 // lotto.html 페이지에서만 접속 시 자동 생성되도록
