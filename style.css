@@ -226,6 +226,14 @@ main-header.scrolled {
 
 /* === RESPONSIVE BREAKPOINTS === */
 @media screen and (max-width: 767px) {
+  .container {
+    padding: 0 1rem; /* 모바일에서 컨테이너 좌우 패딩 감소 */
+  }
+
+  .section {
+    padding: 4rem 0 1.5rem; /* 모바일에서 섹션 패딩 감소 */
+  }
+  
   .nav {
     position: relative;
   }
@@ -278,10 +286,16 @@ main-header.scrolled {
 
   .features .container {
     grid-template-columns: 1fr; /* Stack features on very small screens */
+    gap: 1.5rem; /* 피처 카드 간격 조정 */
   }
 
   .articles {
     grid-template-columns: 1fr; /* Stack articles on very small screens */
+    gap: 1.5rem; /* 아티클 카드 간격 조정 */
+  }
+
+  .article-card {
+    margin-bottom: 1rem; /* 아티클 카드 하단 여백 추가 */
   }
 
   .footer__container {
@@ -294,7 +308,7 @@ main-header.scrolled {
   }
 
   .page-content {
-    padding: 1.5rem; /* Smaller padding for small screens */
+    padding: 1rem; /* Smaller padding for small screens */
   }
 
   .contact-grid {
@@ -302,11 +316,34 @@ main-header.scrolled {
   }
 
   .article-container {
-    padding: 1.5rem; /* Smaller padding for small screens */
+    padding: 1rem; /* Smaller padding for small screens */
   }
 
   .article-title {
     font-size: var(--h2-font-size); /* Smaller title on small screens */
+  }
+
+  /* === LOTTO GENERATOR STYLES === */
+  .ball {
+    width: 36px; /* 로또 공 크기 감소 */
+    height: 36px;
+    font-size: 0.85rem;
+  }
+  .numbers {
+    gap: 0.5rem; /* 로또 공 간격 감소 */
+  }
+  .lotto-header h2 {
+    font-size: 1rem; /* 로또 헤더 폰트 크기 감소 */
+  }
+  .lotto-refresh-btn {
+    padding: 0.4rem 0.8rem; /* 새로고침 버튼 패딩 감소 */
+    font-size: 0.85rem;
+  }
+  .game-title {
+    font-size: 0.95rem; /* 게임 타이틀 폰트 크기 감소 */
+  }
+  .game-desc {
+    font-size: 0.75rem; /* 게임 설명 폰트 크기 감소 */
   }
 }
 
