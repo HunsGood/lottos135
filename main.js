@@ -28,6 +28,7 @@ class MainHeader extends HTMLElement {
 
     navToggle.addEventListener('click', () => {
       navMenu.classList.toggle('show-menu');
+      document.body.classList.toggle('no-scroll');
     });
   }
   
