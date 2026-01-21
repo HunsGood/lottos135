@@ -71,6 +71,10 @@ body {
   position: relative;
 }
 
+body.no-scroll {
+  overflow: hidden; /* 메뉴 열렸을 때 스크롤 방지 */
+}
+
 body::after {
     content: '';
     position: fixed;
@@ -178,6 +182,7 @@ main-header.scrolled {
 }
 
 .nav__menu {
+  pointer-events: none; /* 메뉴가 닫혀 있을 때는 클릭 이벤트 비활성화 */
   /* For desktop, this acts as a container for the list, no direct flex styling here */
 }
 
@@ -247,19 +252,21 @@ main-header.scrolled {
     flex-direction: column;
     align-items: center;
     justify-content: center; /* Center items vertically */
-    background-color: hsla(258, 100%, 98%, 0.95); /* Slightly less transparent */
+    background-color: white; /* 완전히 불투명한 흰색 */
     backdrop-filter: blur(15px); /* Stronger blur */
     -webkit-backdrop-filter: blur(15px);
     padding: 5rem 1rem 3rem;
     transition: top 0.4s ease-in-out; /* Smoother transition */
     overflow-y: auto;
     z-index: var(--z-fixed); /* Ensure it's above other content */
+    pointer-events: none; /* 메뉴가 닫혀 있을 때는 클릭 이벤트 비활성화 */
   }
 
   .nav__menu.show-menu {
     top: 0; /* Show the menu */
     border-bottom-left-radius: 0; /* No radius when full screen */
     border-bottom-right-radius: 0;
+    pointer-events: auto; /* 메뉴가 열려 있을 때는 클릭 이벤트 활성화 */
   }
 
   .nav__list { /* This targets the <ul> inside .nav__menu */
