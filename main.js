@@ -2,8 +2,8 @@ const headerTemplate = document.createElement('template');
 headerTemplate.innerHTML = `
   <nav class="nav container">
     <a href="index.html" class="nav__logo">LifeGuide</a>
-    <div class="nav__list" id="nav-list">
-      <ul class="nav__list-items">
+    <div class="nav__menu" id="nav-menu">
+      <ul class="nav__list">
         <li class="nav__item"><a href="index.html" class="nav__link">홈</a></li>
         <li class="nav__item"><a href="about.html" class="nav__link">소개</a></li>
         <li class="nav__item"><a href="lotto.html" class="nav__link">오늘의 로또</a></li>
@@ -24,10 +24,10 @@ class MainHeader extends HTMLElement {
     this.appendChild(headerTemplate.content.cloneNode(true));
 
     const navToggle = this.querySelector('#nav-toggle');
-    const navList = this.querySelector('#nav-list');
+    const navMenu = this.querySelector('#nav-menu');
 
     navToggle.addEventListener('click', () => {
-      navList.classList.toggle('show-menu');
+      navMenu.classList.toggle('show-menu');
     });
   }
   

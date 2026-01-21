@@ -170,9 +170,21 @@ main-header.scrolled {
   color: var(--title-color);
 }
 
-.nav__list {
+.nav__toggle {
+  font-size: 1.5rem;
+  color: var(--title-color);
+  cursor: pointer;
+  display: none;
+}
+
+.nav__menu {
+  /* For desktop, this acts as a container for the list, no direct flex styling here */
+}
+
+.nav__list { /* This targets the <ul> inside .nav__menu */
   display: flex;
   gap: 2rem;
+  /* Additional styles for desktop menu list items */
 }
 
 .nav__link {
@@ -181,6 +193,7 @@ main-header.scrolled {
   color: var(--title-color);
   transition: color 0.3s ease;
   position: relative;
+  /* Default font size for desktop */
 }
 
 .nav__link::after {
@@ -202,11 +215,166 @@ main-header.scrolled {
   width: 100%;
 }
 
-.nav__toggle {
-  font-size: 1.5rem;
-  color: var(--title-color);
-  cursor: pointer;
-  display: none;
+.nav__link.active-link {
+  color: var(--primary-color);
+  font-weight: var(--font-bold);
+}
+
+.nav__link.active-link::after {
+  width: 100%;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+@media screen and (max-width: 767px) {
+  .nav {
+    position: relative;
+  }
+  .nav__menu {
+    position: fixed;
+    top: -100%; /* Hidden by default */
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center items vertically */
+    background-color: hsla(258, 100%, 98%, 0.95); /* Slightly less transparent */
+    backdrop-filter: blur(15px); /* Stronger blur */
+    -webkit-backdrop-filter: blur(15px);
+    padding: 5rem 1rem 3rem;
+    transition: top 0.4s ease-in-out; /* Smoother transition */
+    overflow-y: auto;
+    z-index: var(--z-fixed); /* Ensure it's above other content */
+  }
+
+  .nav__menu.show-menu {
+    top: 0; /* Show the menu */
+    border-bottom-left-radius: 0; /* No radius when full screen */
+    border-bottom-right-radius: 0;
+  }
+
+  .nav__list { /* This targets the <ul> inside .nav__menu */
+    flex-direction: column;
+    gap: 2.5rem; /* More spacing for mobile menu items */
+    text-align: center;
+  }
+
+  .nav__link {
+    font-size: 1.25rem; /* Slightly larger links for mobile */
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .features .container {
+    grid-template-columns: 1fr; /* Stack features on very small screens */
+  }
+
+  .articles {
+    grid-template-columns: 1fr; /* Stack articles on very small screens */
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr; /* Stack footer content */
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .page-content {
+    padding: 1.5rem; /* Smaller padding for small screens */
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr; /* Stack contact cards */
+  }
+
+  .article-container {
+    padding: 1.5rem; /* Smaller padding for small screens */
+  }
+
+  .article-title {
+    font-size: var(--h2-font-size); /* Smaller title on small screens */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --section-padding: 7rem 0 3rem; /* Increase section padding for tablet+ */
+  }
+  .container {
+    padding: 0 2rem; /* Slightly more padding for tablet+ */
+  }
+
+  .nav {
+    height: 5rem; /* Taller nav for tablet+ */
+  }
+
+  .features .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+
+  .articles {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for footer on tablet */
+    text-align: left;
+  }
+
+  .footer__links {
+    justify-content: flex-start;
+  }
+
+  .page-container {
+    padding: 3rem 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  body {
+    --section-padding: 8rem 0 4rem; /* Further increase section padding for desktop */
+  }
+  .container {
+    max-width: 1200px; /* Larger max-width for desktop */
+    padding: 0 1rem;
+  }
+
+  .features .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  }
+
+  .articles {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(4, 1fr); /* More columns for footer on desktop */
+  }
+
+  .nav {
+    height: 6rem; /* Even taller nav for desktop */
+  }
+  .section {
+    padding: 8rem 0 2rem;
+  }
+
+  .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 /* === MAIN CONTENT === */
@@ -856,81 +1024,6 @@ main {
 
 .article-content strong {
     color: var(--title-color);
-}
-
-
-/* === RESPONSIVE BREAKPOINTS === */
-@media screen and (max-width: 767px) {
-  .nav {
-    position: relative;
-  }
-  .nav__list {
-    position: fixed;
-    top: -100%;
-    left: 0;
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    background-color: hsla(258, 100%, 98%, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    padding: 5rem 1rem 3rem;
-    border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-    box-shadow: var(--header-shadow);
-    transition: top 0.4s ease;
-    overflow-y: auto;
-  }
-
-  .nav__list.show-menu {
-    top: 0;
-  }
-
-  .nav__toggle {
-    display: block;
-  }
-
-  .hero-title {
-    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
-  }
-
-  .hero-subtitle {
-    font-size: 1rem;
-  }
-
-  .features .container {
-    grid-template-columns: 1fr; /* Stack features on very small screens */
-  }
-
-  .articles {
-    grid-template-columns: 1fr; /* Stack articles on very small screens */
-  }
-
-  .footer__container {
-    grid-template-columns: 1fr; /* Stack footer content */
-  }
-
-  .footer__links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .page-content {
-    padding: 1.5rem; /* Smaller padding for small screens */
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr; /* Stack contact cards */
-  }
-
-  .article-container {
-    padding: 1.5rem; /* Smaller padding for small screens */
-  }
-
-  .article-title {
-    font-size: var(--h2-font-size); /* Smaller title on small screens */
-  }
 }
 
 @media screen and (min-width: 768px) {
