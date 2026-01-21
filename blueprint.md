@@ -23,11 +23,12 @@ This project will leverage the following principles and features as implemented 
 
 ### Modern CSS (Baseline Features)
 - Container Queries (`@container`): Responsive components based on container size.
-- Cascade Layers (`@layer`): Manages CSS cascade to prevent conflicts.
+- Cascade Layers (`@layer`): Managers CSS cascade to prevent conflicts.
 - The `:has()` Selector: Selects parent elements based on children.
 - Logical Properties: Uses properties like `margin-inline-start`.
 - Modern Color Spaces (`oklch`, `lch`): Access to vibrant, perceptually uniform colors.
 - CSS Variables: For theming and maintenance.
+- **Responsive Design**: Implemented comprehensive media queries in `style.css` for mobile (`max-width: 767px`), tablet (`min-width: 768px`), and desktop (`min-width: 1024px`). This includes adjustments to grid layouts, padding, and font sizes to ensure optimal viewing across various devices.
 
 ### Modern JavaScript (Baseline Features)
 - ES Modules: Organizes code into reusable modules.
@@ -53,10 +54,9 @@ This project will leverage the following principles and features as implemented 
 - Accessibility (A11Y): Implements features to empower all users.
 
 ## Plan for Current Change
-**Objective**: Create the `blueprint.md` file to document the project's capabilities and serve as a reference for future changes.
+**Objective**: Deploy the responsive website after implementing responsive design changes.
 
 **Steps**:
-1. Read the `GEMINI.md` file to understand the AI's operational guidelines and capabilities.
-2. Structure the `blueprint.md` file with an overview, detailed features/design, and a plan for the current change.
-3. Populate the `blueprint.md` file with information extracted from `GEMINI.md`.
-4. Save the `blueprint.md` file to the project's root directory.
+1. Verify Firebase configuration and initialize Firebase Hosting if necessary.
+2. Deploy the website to Firebase Hosting.
+3. Commit all changes to Git.

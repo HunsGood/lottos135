@@ -858,6 +858,7 @@ main {
     color: var(--title-color);
 }
 
+
 /* === RESPONSIVE BREAKPOINTS === */
 @media screen and (max-width: 767px) {
   .nav {
@@ -889,13 +890,112 @@ main {
   .nav__toggle {
     display: block;
   }
+
+  .hero-title {
+    font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .features .container {
+    grid-template-columns: 1fr; /* Stack features on very small screens */
+  }
+
+  .articles {
+    grid-template-columns: 1fr; /* Stack articles on very small screens */
+  }
+
+  .footer__container {
+    grid-template-columns: 1fr; /* Stack footer content */
+  }
+
+  .footer__links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .page-content {
+    padding: 1.5rem; /* Smaller padding for small screens */
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr; /* Stack contact cards */
+  }
+
+  .article-container {
+    padding: 1.5rem; /* Smaller padding for small screens */
+  }
+
+  .article-title {
+    font-size: var(--h2-font-size); /* Smaller title on small screens */
+  }
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    --section-padding: 7rem 0 3rem; /* Increase section padding for tablet+ */
+  }
+  .container {
+    padding: 0 2rem; /* Slightly more padding for tablet+ */
+  }
+
+  .nav {
+    height: 5rem; /* Taller nav for tablet+ */
+  }
+
+  .features .container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+
+  .articles {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for tablet */
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for footer on tablet */
+    text-align: left;
+  }
+
+  .footer__links {
+    justify-content: flex-start;
+  }
+
+  .page-container {
+    padding: 3rem 0;
+  }
 }
 
 @media screen and (min-width: 1024px) {
+  body {
+    --section-padding: 8rem 0 4rem; /* Further increase section padding for desktop */
+  }
   .container {
+    max-width: 1200px; /* Larger max-width for desktop */
     padding: 0 1rem;
+  }
+
+  .features .container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  }
+
+  .articles {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for desktop */
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(4, 1fr); /* More columns for footer on desktop */
+  }
+
+  .nav {
+    height: 6rem; /* Even taller nav for desktop */
   }
   .section {
     padding: 8rem 0 2rem;
+  }
+
+  .contact-grid {
+      grid-template-columns: repeat(3, 1fr);
   }
 }
