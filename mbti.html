@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBTI 성격 유형 검사 - LifeGuide</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-1730995506059861">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1730995506059861" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1L2W77GNG6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-1L2W77GNG6');
+    </script>
+</head>
+<body>
+    <main-header></main-header>
+
+    <main>
+        <section class="section">
+            <div class="container page-container">
+                <h1 class="page-title section__title">🤔 MBTI 성격 유형 검사</h1>
+                
+                <article class="mbti-wrapper">
+                    <!-- Intro -->
+                    <div class="mbti-start" id="main">
+                        <h2 class="mbti-title">나의 성격 유형은?</h2>
+                        <p class="mbti-desc">
+                            12개의 간단한 질문을 통해<br>
+                            나의 진짜 성격 유형을 알아보세요!
+                        </p>
+                        <button type="button" class="mbti-start-btn" onclick="start()">검사 시작하기</button>
+                    </div>
+
+                    <!-- Questions -->
+                    <div class="mbti-questions" id="qna">
+                        <div class="status-bar">
+                            <div class="status-bar__progress"></div>
+                        </div>
+                        <h2 class="question__title" id="question-title"></h2>
+                        <div class="answer__list">
+                            <!-- Answers will be inserted here by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Result -->
+                    <div class="mbti-result" id="result">
+                        <h2 class="result__title"></h2>
+                        <img class="result__img" src="" alt="결과 이미지">
+                        <p class="result__desc"></p>
+                        <button type="button" class="mbti-share-btn">결과 공유하기</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__container container grid">
+            <div class="footer__content">
+                <h3 class="footer__title">LifeGuide</h3>
+                <p>더 나은 당신을 위한 안내서</p>
+            </div>
+            <div class="footer__content">
+                <ul class="footer__links">
+                    <li><a href="about.html" class="footer__link">소개</a></li>
+                    <li><a href="contact.html" class="footer__link">문의</a></li>
+                    <li><a href="privacy.html" class="footer__link">개인정보처리방침</a></li>
+                </ul>
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2026 LifeGuide. All rights reserved.</p>
+    </footer>
+
+    <script src="mbti.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
