@@ -174,7 +174,7 @@ function goResult(){
     mbti += select.J > select.P ? "J" : "P";
 
     const resultName = document.querySelector('.result__title');
-    resultName.innerHTML = infoList[mbti].name;
+    resultName.innerHTML = `${mbti} - ${infoList[mbti].name}`;
 
     const resultDesc = document.querySelector('.result__desc');
     resultDesc.innerHTML = infoList[mbti].desc;
